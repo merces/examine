@@ -1,5 +1,5 @@
 all:
-	gcc -O2 -Wall -o examine examine.c
+	gcc -O2 -Wall -o examine examine.c -lm
 
 install:
 	install -m 0755 examine /usr/local/bin/examine
