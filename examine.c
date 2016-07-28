@@ -63,7 +63,7 @@ void examine(const char *s) {
    	"NUL", "SOH", "STX", "ETX", "EOT", "ENQ", "ACK", "BEL",
    	"BS", "\\t (tab)", "\\n (newline or line feed)", "VT (vertical tab)", "FF", "\\r (carriage return)", "SO", "SI",
    	"DLE", "DC1", "DC2", "DC3", "DC4", "NAK", "SYN", "ETB",
-		"CAN", "EM", "SUB", "ESC", "FS", "GS", "RS", "US"
+	"CAN", "EM", "SUB", "ESC", "FS", "GS", "RS", "US"
 	};
 
 	// Handle input as string
@@ -117,11 +117,11 @@ void examine(const char *s) {
 	if (number >= 0 && number <= 0xffffff)
 		printf("RGB: (%d, %d, %d)\n", (int)(number >> 16) & 0xff, (int)(number >> 8) & 0xff, (int) number & 0xff);
 
-	printf("IPv4: %d.%d.%d.%d\n", 
-			  (int)(number>>24) & 0xff,
-			  (int)(number>>16) & 0xff,
-			  (int)(number>>8) & 0xff,
-			  (int)number & 0xff);
+	printf("IPv4: %d.%d.%d.%d\n",
+		(int)(number>>24) & 0xff,
+		(int)(number>>16) & 0xff,
+		(int)(number>>8) & 0xff,
+		(int)number & 0xff);
 
 	char timestr[40], u[40];
 	strftime(timestr, sizeof(timestr), "%a, %d %b %Y %H:%M:%S UTC/GMT-0", gmtime((time_t *) &number));
