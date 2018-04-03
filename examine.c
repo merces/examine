@@ -152,7 +152,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		if ( i < 0 )
-			i = 0 // HotFix for Buffer UnderFlow
+			i = 0 ; // HotFix for Buffer UnderFlow
 
 		s[i] = c;
 	}
