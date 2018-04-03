@@ -137,6 +137,10 @@ int main(int argc, char *argv[]) {
 
 	// Loop until Ctrl+C is pressed
 	for (i=0; ; i++) {
+
+		if ( i >= MAX_CMD_LINE ) 
+			i = MAX_CMD_LINE-1 ; // HotFix for Buffer Overflow
+
 		if ((c = getchar()) == EOF) // End Of File reached when reading from a pipe
 			break;
 
@@ -146,6 +150,10 @@ int main(int argc, char *argv[]) {
 			i=-1;
 			putchar('\n');
 		}
+
+		if ( i < 0 )
+			i = 0 // HotFix for Buffer UnderFlow
+
 		s[i] = c;
 	}
 
