@@ -130,31 +130,36 @@ void examine(const char *s) {
 }
 
 int main(int argc, char *argv[]) {
-	int i;
+	unsigned i=0;
 	char s[MAX_CMD_LINE], c;
 
-	memset(s, 0, MAX_CMD_LINE);
-
 	// Loop until Ctrl+C is pressed
-	for (i=0; ; i++) {
+	while (1) {
+		if (i==0)
+			printf("eXamine> ");
 
-		if ( i >= MAX_CMD_LINE ) 
-			i = MAX_CMD_LINE-1 ; // HotFix for Buffer Overflow
-
-		if ((c = getchar()) == EOF) // End Of File reached when reading from a pipe
-			break;
+		c = getchar();
 
 		if (c == '\n') {
-			examine(s);
-			memset(s, 0, MAX_CMD_LINE);
-			i=-1;
-			putchar('\n');
+			s[i] = '\0';
+			if (i > 0) {
+				examine(s);
+				putchar('\n');
+			}
+			i=0;
+			continue;
+		} else if (c == EOF) {
+			break;
+		} else {
+			s[i] = c;
 		}
 
-		if ( i < 0 )
-			i = 0 ; // HotFix for Buffer UnderFlow
+		if (i >= MAX_CMD_LINE) {
+			fprintf(stderr, "Error: input is bigger than %d bytes. Increase MAX_CMD_LINE and try again.\n", MAX_CMD_LINE);
+			return 1;
+		}
 
-		s[i] = c;
+		i++;
 	}
 
 	return 0;
