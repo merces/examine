@@ -4,6 +4,7 @@
 #include <limits.h>
 #include <time.h>
 #include <math.h>
+#include <unistd.h>
 
 #define MAX_CMD_LINE 1000
 
@@ -135,7 +136,7 @@ int main(int argc, char *argv[]) {
 
 	// Loop until Ctrl+C is pressed
 	while (1) {
-		if (i==0)
+		if (i==0 && isatty(fileno(stdin)))
 			printf("eXamine> ");
 
 		c = getchar();
