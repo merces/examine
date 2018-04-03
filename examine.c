@@ -151,8 +151,8 @@ int main(int argc, char *argv[]) {
 			putchar('\n');
 		}
 
-		if ( i < 0 )
-			i = 0 // HotFix for Buffer UnderFlow
+		if ( i < -1 )
+			i = -1 ;// HotFix for Buffer UnderFlow
 
 		s[i] = c;
 	}
