@@ -2,21 +2,18 @@
 
 Data conversion/examination command line tool.
 
-## Build
+## Installation
 
-   make
+eXamine is written in pure C, so you cam compile it wherever you want. Just do:
 
-## Install
-
-   make install
-
-## Usage
-
+    git clone https://github.com/merces/examine.git
+    make
+    make install
     examine
 
 A symbolic link "x" is also created for your convenience. :neckbeard:
 
-Available input prefixes for numbers are: 0b (binary), 0x (hexadecimal) and 0 (octal).
+Available input prefixes (for numbers only): 0b (binary), 0x (hexadecimal) and 0 (octal).
 
 ## Usage examples
 
@@ -71,7 +68,3 @@ eXamine does not really know whether the input is intended to be either a string
     Timestamp: Sun, 23 Nov 2003 00:32:00 UTC/GMT-0
 
 Hit Ctrl+C to quit.
-
-## Uninstall
-
-    make uninstall
