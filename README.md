@@ -1,5 +1,7 @@
 # eXamine 1.0 beta
 
+![C/C++ CI](https://github.com/merces/examine/workflows/C/C++%20CI/badge.svg)
+
 Data conversion/examination command line tool.
 
 ## Installation
