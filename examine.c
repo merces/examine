@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 #define MAX_CMD_LINE 1000
+#define TIMESTR_SIZ 36
 
 // From https://stackoverflow.com/questions/16164620/how-to-convert-an-ieee-754-single-precision-binary-floating-point-to-decimal/29969785#29969785
 float int2float(int uintS) {
@@ -124,9 +125,9 @@ void examine(const char *s) {
 		(int)(number>>8) & 0xff,
 		(int)number & 0xff);
 
-	char timestr[40], u[40];
-	strftime(timestr, sizeof(timestr), "%a, %d %b %Y %H:%M:%S UTC/GMT-0", gmtime((time_t *) &number));
-	snprintf(u, 39, "%s", timestr);
+	char timestr[TIMESTR_SIZ], u[TIMESTR_SIZ];
+	strftime(timestr, TIMESTR_SIZ, "%a, %d %b %Y %H:%M:%S UTC/GMT-0", gmtime((time_t *) &number));
+	snprintf(u, TIMESTR_SIZ, "%s", timestr);
 	printf("Timestamp: %s\n", u);
 }
 
